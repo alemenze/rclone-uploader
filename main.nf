@@ -3,9 +3,9 @@
                               (╯°□°)╯︵ ┻━┻
 
 ========================================================================================
-                Workflow for uploading data using rsync to a managed environment
+                Workflow for uploading data using rclone to a managed environment
 ========================================================================================
-                  https://github.com/alemenze/rsync-uploader
+                  https://github.com/alemenze/rclone-uploader
 */
 
 nextflow.enable.dsl = 2
