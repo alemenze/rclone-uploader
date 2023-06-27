@@ -11,7 +11,7 @@ This tool is meant to facilitate upload batches using rsync to managed bucket st
 
 Usage:
 ```bash
-    nextflow run alemenze/rsync-uploader \
+    nextflow run alemenze/rclone-uploader \
     --samplesheet ./metadata.csv \
     -c config \
     -profile docker
