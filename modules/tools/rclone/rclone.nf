@@ -7,7 +7,7 @@ process upload{
     publishDir "${params.outdir}/logfiles/${meta}/${type}",
         mode: "copy",
         overwrite: true,
-	pattern: "*.logfile",
+	    pattern: "*.logfile",
         saveAs: { filename -> filename }
  
     container "alemenze/rclone"
@@ -22,7 +22,7 @@ process upload{
 
     script:
         """
-	cp $md5s $datapath/$md5s
-        rclone copy $datapath $params.target/${type}/${meta} --log-file ${meta}_${type}.logfile
+	    cp $md5s $datapath/$md5s
+        rclone copy $datapath $params.target/${type}/NewData/${meta} --log-file ${meta}_${type}.logfile
         """
 }

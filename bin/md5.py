@@ -31,8 +31,9 @@ def md5_run(DIR_IN, FILE_OUT):
 
         for dirpath, dirname, filename in os.walk(DIR_IN):
             for f in filename:
+                relpath="/".join(dirpath.strip("/").split('/')[3:])
                 md5=md5_file(os.path.join(dirpath,f))
-                wr.writerow([f,md5])
+                wr.writerow([os.path.join(relpath,f),md5])
 
 def main(args=None):
     args = parse_args(args)
