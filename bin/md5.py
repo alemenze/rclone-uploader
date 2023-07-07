@@ -21,13 +21,13 @@ def parse_args(args=None):
 
     parser = argparse.ArgumentParser(description=Description, epilog=Epilog)
     parser.add_argument("DIR_IN", help="Input directory.")
-    parser.add_argument("FILE_OUT", help="Output csv file.")
+    parser.add_argument("FILE_OUT", help="Output txt file.")
     return parser.parse_args(args)
 
 def md5_run(DIR_IN, FILE_OUT):
     with open(FILE_OUT,'w',newline='\n') as output:
-        wr=csv.writer(output, quoting=csv.QUOTE_ALL, delimiter=',')
-        wr.writerow(['filename','md5'])
+        wr=csv.writer(output, quoting=csv.QUOTE_ALL, delimiter=' ')
+        wr.writerow(['md5','filename'])
 
         for dirpath, dirname, filename in os.walk(DIR_IN):
             for f in filename:
