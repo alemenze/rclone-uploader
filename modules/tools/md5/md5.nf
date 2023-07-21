@@ -9,7 +9,7 @@ process md5checksums{
     publishDir "${params.outdir}/md5s/${meta}/${type}",
         mode: "copy",
         overwrite: true,
-	    pattern: "md5_*.txt",
+	    pattern: "md5_*.csv",
         saveAs: { filename -> filename }
 
     input:
@@ -17,12 +17,12 @@ process md5checksums{
         val(type)
 
     output:
-        tuple val(meta), path(datapath), path("*.txt"), emit: paths_md5s
+        tuple val(meta), path(datapath), path("*.csv"), emit: paths_md5s
 
     script:
         """
         md5.py \\
             $datapath \\
-            md5_${type}.txt
+            md5_${type}.csv
         """
 }
