@@ -9,7 +9,7 @@ process md5checksums{
     publishDir "${params.outdir}/md5s/${meta}/${type}",
         mode: "copy",
         overwrite: true,
-	    pattern: "md5_*.csv",
+	pattern: "md5_*.csv",
         saveAs: { filename -> filename }
 
     input:
@@ -23,6 +23,7 @@ process md5checksums{
         """
         md5.py \\
             $datapath \\
-            md5_${type}.csv
+            md5_${type}.csv \\
+	        ${meta}
         """
 }
